@@ -1,6 +1,35 @@
 @import "../lib/bootstrap/css/bootstrap.css";
 
 @import "../lib/bootstrap/css/bootstrap-responsive.css";
+
+@import "../lib/leaflet/leaflet.css";
+body {
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00B7FF;
+}
+ng-view {
+  display: block;
+  padding: 0px;
+}
+.main-wrapper {
+  padding: 43px 300px 0 0;
+}
+.main-wrapper aside.sidebarWrapper {
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+  position: fixed;
+  top: 43px;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+}
+.main-wrapper aside .sidebar {
+  padding: 15px;
+}
 /*!
  *  Font Awesome 3.2.0
  *  the iconic font designed for Bootstrap
@@ -1471,11 +1500,4 @@ a .icon-flip-vertical:before {
 }
 .icon-renren:before {
   content: "\f18b";
-}
-body {
-  padding: 10px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-a {
-  color: #00B7FF;
 }

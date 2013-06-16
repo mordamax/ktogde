@@ -11,7 +11,7 @@ html(ng-app="ktogde")
   body
 
     header
-      div.navbar
+      div.navbar.navbar-fixed-top
         div.navbar-inner
           a.brand(href="/") Кто где?
           ul.nav
@@ -20,7 +20,7 @@ html(ng-app="ktogde")
             li
               a(href="/about") About
 
-    div.container-fluid
+    div.container-fluid.main-wrapper
       div.row-fluid
         div.span12
           ng-view
@@ -32,5 +32,9 @@ html(ng-app="ktogde")
     script(src='/lib/angular/angular-resource.js')
     script(src='/lib/angular/angular-sanitize.js')
 
+    script(src='/lib/leaflet/leaflet.js')
+
     script(src='/js/ktogde-app.js')
     script(src='/js/ktogde-controllers.js')
+    script(src='/js/ktogde-api.js')
+    script(src='/js/ktogde-map.js')

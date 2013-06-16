@@ -1,12 +1,46 @@
-@import "../lib/font-awesome/less/font-awesome.less";
-@import "../lib/bootstrap/css/bootstrap.css";
-@import "../lib/bootstrap/css/bootstrap-responsive.css";
 
+@headerHeight: 43px;
+
+@sidebarWidth: 300px;
+@sidebarPadding: 15px;
+
+@contentPadding: 0px;
 body {
-  padding: 10px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+ng-view {
+  display: block;
+  padding: @contentPadding;
+}
+
+.main-wrapper {
+  padding: @headerHeight @sidebarWidth 0 0;
+
+  aside {
+    &.sidebarWrapper {
+      margin: 0;
+      padding: 0;
+      overflow: scroll;
+      position: fixed;
+      top: @headerHeight;
+      right: 0;
+      bottom: 0;
+      width: @sidebarWidth;
+    }
+    .sidebar {
+      padding: @sidebarPadding;
+    }
+  }
+}
+
+@import "../lib/font-awesome/less/font-awesome.less";
+@import "../lib/bootstrap/css/bootstrap.css";
+@import "../lib/bootstrap/css/bootstrap-responsive.css";
+@import "../lib/leaflet/leaflet.css";
+//@import "../lib/leaflet/leaflet.ie.css";
