@@ -1,7 +1,36 @@
 doctype 5
-html
+html(ng-app="ktogde")
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/css/style.css')
+
+    style
+        [ng-cloak] {
+          display: none;
+        }
   body
-    block content
+
+    header
+      div.navbar
+        div.navbar-inner
+          a.brand(href="/") Кто где?
+          ul.nav
+            li.active
+              a(href="/") Home
+            li
+              a(href="/about") About
+
+    div.container-fluid
+      div.row-fluid
+        div.span12
+          ng-view
+
+    script(src='/lib/jquery/jquery-1.10.1.min.js')
+    script(src='/lib/bootstrap/js/bootstrap.min.js')
+
+    script(src='/lib/angular/angular.min.js')
+    script(src='/lib/angular/angular-resource.js')
+    script(src='/lib/angular/angular-sanitize.js')
+
+    script(src='/js/ktogde-app.js')
+    script(src='/js/ktogde-controllers.js')

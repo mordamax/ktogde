@@ -12,6 +12,12 @@ var placeSchema = mongoose.Schema({
 })
 var Place = mongoose.model("Place", placeSchema);
 
+/*
+*
+* GET
+* All places
+* */
+
 exports.getAllPlaces = function(req, res){
     Place.find({}, function(e, places){
         res.json({
