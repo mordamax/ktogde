@@ -1,35 +1,54 @@
 var mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/ktogde");
+mongoose.connect("mongodb://127.0.0.1/wtf");
 
-var placeSchema = mongoose.Schema({
+var termSchema = mongoose.Schema({
     title: 'string',
-    location: {
-        name: 'string',
-        latitude: 'number',
-        longitude: 'number'
-    }
+    description: "string",
+    published: 'boolean'
 })
-var Place = mongoose.model("Place", placeSchema);
+var Term = mongoose.model("Term", termSchema);
 
 /*
 *
 * GET
-* All places
+* All terms
 * */
 
-exports.getAllPlaces = function(req, res){
-    Place.find({}, function(e, places){
+exports.getAllTerms = function(req, res){
+    Term.find({ published: req.query.published }, function(e, terms){
         res.json({
-            payload: places
+            payload: terms
         })
     })
 }
 
-exports.getOnePlace = function(req, res){
-    Place.find({_id: req.params.id}, function(e, place){
+exports.getOneTerm = function(req, res){
+    Term.find({_id: req.params.id}, function(e, term){
         res.json({
-           payload: place
+           payload: term
         })
     })
 }
+
+exports.createTerm = function(req, res){
+    var newTerm = req.body;
+        newTerm.published = false;
+
+    Term.create(req.body, function(e, term){
+        res.json({
+           payload: term
+        })
+    })
+}
+
+exports.updateTerm = function(req, res){
+    Term.find({_id: req.params.id}, function(e, term){
+        term.update(req.body, function(e, updatedTerm){
+            res.json({
+                payload: updatedTerm
+            })
+        })
+    })
+}
+

@@ -1,5 +1,5 @@
 doctype 5
-html(ng-app="ktogde")
+html(ng-app="wtf")
   head
     title= title
     link(rel='stylesheet', href='/css/style.css')
@@ -8,20 +8,20 @@ html(ng-app="ktogde")
         [ng-cloak] {
           display: none;
         }
-  body
+  body(style="margin-top:10px")
 
-    header
-      div.navbar.navbar-fixed-top
-        div.navbar-inner
-          a.brand(href="/") Кто где?
+    header.container
+      div.navbar.navbar-inverse
+        div.navbar-inner(style="padding: 0 20px;")
+          a.brand(href="/wtf") WTF?
           ul.nav
-            li.active
-              a(href="/") Home
             li
-              a(href="/about") About
+              a(href="/incubator") Инкубатор
+            li
+              a(href="/") O_o
 
-    div.container-fluid.main-wrapper
-      div.row-fluid
+    div.container.main-wrapper
+      div.row
         div.span12
           ng-view
 
@@ -34,7 +34,7 @@ html(ng-app="ktogde")
 
     script(src='/lib/leaflet/leaflet.js')
 
-    script(src='/js/ktogde-app.js')
-    script(src='/js/ktogde-controllers.js')
-    script(src='/js/ktogde-api.js')
-    script(src='/js/ktogde-map.js')
+    script(src='/js/wtf-app.js')
+    script(src='/js/wtf-wtf.js')
+    script(src='/js/wtf-incubator.js')
+    script(src='/js/wtf-services.js')

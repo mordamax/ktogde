@@ -14,21 +14,15 @@ ng-view {
   display: block;
   padding: 0px;
 }
-.main-wrapper {
-  padding: 43px 300px 0 0;
-}
 .main-wrapper aside.sidebarWrapper {
   margin: 0;
   padding: 0;
-  overflow: scroll;
-  position: fixed;
-  top: 43px;
-  right: 0;
-  bottom: 0;
-  width: 300px;
 }
 .main-wrapper aside .sidebar {
   padding: 15px;
+}
+.navbar .brand {
+  padding-top: 7px;
 }
 /*!
  *  Font Awesome 3.2.0

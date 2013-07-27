@@ -20,22 +20,21 @@ ng-view {
 }
 
 .main-wrapper {
-  padding: @headerHeight @sidebarWidth 0 0;
 
   aside {
     &.sidebarWrapper {
       margin: 0;
       padding: 0;
-      overflow: scroll;
-      position: fixed;
-      top: @headerHeight;
-      right: 0;
-      bottom: 0;
-      width: @sidebarWidth;
     }
     .sidebar {
       padding: @sidebarPadding;
     }
+  }
+}
+
+.navbar{
+  .brand {
+    padding-top: 7px;
   }
 }
 
