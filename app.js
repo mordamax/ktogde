@@ -12,7 +12,7 @@ var express = require('express')
 var app = express();
 
 // all environments
-app.set('port', process.env.VCAP_APP_PORT || 3000);
+app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.set('view options', {
@@ -31,7 +31,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-
+console.log(process.env);
 app.get('/partials/:name'   , routes.partials);
 app.get("/api/terms"        , api.getAllTerms);
 app.get("/api/term/:id"     , api.getOneTerm);
