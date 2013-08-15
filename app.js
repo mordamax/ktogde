@@ -11,8 +11,10 @@ var express = require('express')
 
 var app = express();
 
+console.log(process.env.PORT);
+
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.APP_PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.set('view options', {
@@ -31,10 +33,11 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-console.log(process.env);
 app.get('/partials/:name'   , routes.partials);
 app.get("/api/terms"        , api.getAllTerms);
 app.get("/api/term/:id"     , api.getOneTerm);
+
+app.get('/api/env', api.env);
 
 app.post("/api/terms"       , api.createTerm);
 

@@ -52,3 +52,7 @@ exports.updateTerm = function(req, res){
     })
 }
 
+exports.env = function(req, res){
+    res.json(process.env);
+}
+
