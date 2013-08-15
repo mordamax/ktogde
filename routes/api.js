@@ -1,6 +1,12 @@
-var mongoose = require("mongoose");
+var mongoose = require("mongoose")
+,   env = process.env
+,   mongooseUrl = env.OPENSHIFT_MONGODB_DB_HOST
+        ? "mongodb://"+env.OPENSHIFT_MONGODB_DB_HOST+":"+env.OPENSHIFT_MONGODB_DB_PORT +"/"
+        : "mongodb://127.0.0.1/wtf"
+    ;
 
-mongoose.connect("mongodb://127.0.0.1/wtf");
+
+mongoose.connect( mongooseUrl );
 
 var termSchema = mongoose.Schema({
     title: 'string',

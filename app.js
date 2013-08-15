@@ -11,10 +11,9 @@ var express = require('express')
 
 var app = express();
 
-console.log(process.env.PORT);
-
 // all environments
-app.set('port', process.env.APP_PORT || 3000);
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 3000);
+app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.set('view options', {
@@ -43,6 +42,6 @@ app.post("/api/terms"       , api.createTerm);
 
 app.all('*', routes.index);
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), app.get('ipaddr'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
